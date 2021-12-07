@@ -1,1 +1,1 @@
-# code-warrior-python
+# code-wars-python
