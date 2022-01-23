@@ -4,7 +4,7 @@ import pytest
 from cgi import test
 
 # Extract the domain name from a URL
-from cw5kyu import domain_name
+from cw5kyu import domain_name, gap
 
 @pytest.mark.parametrize ("url,response",
                         [("http://github.com/carbonfive/raygun","github"),
@@ -30,7 +30,35 @@ from cw5kyu import rot13
 def test_rot13(texto,response):
     assert rot13(texto) ==response
 
+#Valid Parentheses
+from cw5kyu import valid_parentheses
 
+@pytest.mark.parametrize("lista,res",
+                        [("()",True),
+                        (")(()))",False),
+                        ("(",False),
+                        ("(())((()())())",True), 
+                        ("()jgpy(()u)r)e((tln)gmd)ghxxbj",False),
+                        ("r())qx(n(hyy)a)y)(rnbx)f",False)           
+                        ])
+def test_valid_parentheses(lista,res):
+    assert valid_parentheses(lista) == res
+
+#Gap in Primes
+from cw5kyu import gap
+
+@pytest.mark.parametrize("g,m,n,res",
+                       [(2,3,50,[3,5]),
+                        (4,130,200,[163,167]),
+                        (6,100,110,None),
+                        (2,100,110,[101, 103]),
+                        (4,100,110,[103, 107]),
+                        (8,300,400,[359, 367]),
+                        (10,300,400,[337, 347]),
+                        (2,100,103,[101, 103])
+                        ])
+def test_gap(g,m,n,res):
+    assert gap(g, m, n) == res
 
 
 
